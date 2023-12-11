@@ -369,9 +369,9 @@ function updatePitch( time ) {
  	} else {
 	 	detectorElem.className = "confident";
 	 	pitch = ac;
-		console.info("获取的音频是>"+pitch);
-		if(pitch>0){ //大于0才需要更新，考虑声音停止的情况下
-			pitchElem.innerText = pitch.toFixed(2)//Math.round(pitch);
+		console.info("获取的音频是>"+Math.round(pitch)+"---------->"+pitch.toFixed(2));
+		//if(pitch>0){ //大于0才需要更新，考虑声音停止的情况下
+			pitchElem.innerText = pitch.toFixed(2);//Math.round(pitch); 
 			var note =  noteFromPitch( pitch );
 			noteElem.innerHTML = noteStrings[note%12];
 			var detune = centsOffFromPitch( pitch, note );
@@ -385,7 +385,7 @@ function updatePitch( time ) {
 					detuneElem.className = "sharp";
 				detuneAmount.innerHTML = Math.abs( detune );
 			}
-		}
+		//}
 	 	
 	}
 
