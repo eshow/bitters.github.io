@@ -369,20 +369,23 @@ function updatePitch( time ) {
  	} else {
 	 	detectorElem.className = "confident";
 	 	pitch = ac;
-	 	pitchElem.innerText = Math.round( pitch ) ;
-	 	var note =  noteFromPitch( pitch );
-		noteElem.innerHTML = noteStrings[note%12];
-		var detune = centsOffFromPitch( pitch, note );
-		if (detune == 0 ) {
-			detuneElem.className = "";
-			detuneAmount.innerHTML = "--";
-		} else {
-			if (detune < 0)
-				detuneElem.className = "flat";
-			else
-				detuneElem.className = "sharp";
-			detuneAmount.innerHTML = Math.abs( detune );
+		if(pitchElem>0){ //大于0才需要更新，考虑声音停止的情况下
+			pitchElem.innerText = Math.round( pitch ) ;
+			var note =  noteFromPitch( pitch );
+			noteElem.innerHTML = noteStrings[note%12];
+			var detune = centsOffFromPitch( pitch, note );
+			if (detune == 0 ) {
+				detuneElem.className = "";
+				detuneAmount.innerHTML = "--";
+			} else {
+				if (detune < 0)
+					detuneElem.className = "flat";
+				else
+					detuneElem.className = "sharp";
+				detuneAmount.innerHTML = Math.abs( detune );
+			}
 		}
+	 	
 	}
 
 	if (!window.requestAnimationFrame)

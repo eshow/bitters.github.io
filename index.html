@@ -1,7 +1,7 @@
 <!doctype html>
 <html>
 	<head>
-		<title>Pitch Detector</title>
+		<title>获取声音频率</title>
 		<link href='http://fonts.googleapis.com/css?family=Alike' rel='stylesheet' type='text/css'>
 		<style>
 			body { font: 14pt 'Alike', sans-serif;}
@@ -24,10 +24,9 @@
 		
 		<p><button onclick="startPitchDetect();">Start</button></p>
 		<p>
-			<button onclick="this.innerText = togglePlayback()">use demo audio</button>
-			<button onclick="toggleLiveInput()">use live input</button>
-			<button onclick="toggleOscillator()">use oscillator</button>
-			<!--<button onclick="updatePitch(0);">sample</button>-->
+			<button onclick="this.innerText = togglePlayback()">使用Demo声音</button>
+			<button onclick="toggleLiveInput()">使用在线设备输入</button>
+			<button onclick="toggleOscillator()">使用振荡器</button>
 		</p>
 
 		<div id="detector" class="vague">
@@ -36,12 +35,6 @@
 			<canvas id="output" width=300 height=42></canvas>
 			<div id="detune"><span id="detune_amt">--</span><span id="flat">cents &#9837;</span><span id="sharp">cents &#9839;</span></div>
 		</div>
-
-		<!-- just used for debugging
-		<canvas id="waveform" width="512" height="256"></canvas>
-		-->
-		<a href="https://github.com/cwilso/pitchdetect" style="position: absolute; z-index:2; top: 0; right: 0; border: 0;"><img src="img/forkme.png" alt="Fork me on GitHub"></a>
-
 		<script type="text/javascript">
 
 			var _gaq = _gaq || [];
